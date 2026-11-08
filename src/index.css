@@ -24,6 +24,15 @@
     --ask: 380px;
 }
 
+/* hide the scrollbar but keep scrolling working */
+html {
+    scrollbar-width: none; /* Firefox, Chrome 121+ */
+    -ms-overflow-style: none; /* old Edge/IE */
+}
+html::-webkit-scrollbar {
+    display: none; /* older Chrome, Safari, Brave */
+}
+
 body.dk {
     --bg: #0f0f0f;
     --card: #0f0f0f;
@@ -53,7 +62,7 @@ body.dk {
 
 body.lt {
     --bg: #ffffff;
-    --card: #ffffff;
+    --card: #;
     --input: #f2f2f2;
     --tonal: rgba(0, 0, 0, 0.05);
     --tonal-h: rgba(0, 0, 0, 0.1);
