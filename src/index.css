@@ -5,45 +5,17 @@
 @font-face {
     font-family: "Roboto";
     font-style: normal;
-    font-weight: 400;
+    font-weight: 100 900;
     font-display: swap;
-    src: local("Roboto"), local("Roboto-Regular");
-}
-
-@font-face {
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-    src: local("Roboto Medium"), local("Roboto-Medium");
-}
-
-@font-face {
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
-    src: local("Roboto Bold"), local("Roboto-Bold");
+    src: url("/fonts/roboto.woff2") format("woff2");
 }
 
 @font-face {
     font-family: "YouTube Sans";
     font-style: normal;
-    font-weight: 600;
+    font-weight: 300 900;
     font-display: swap;
-    src:
-        local("YouTube Sans Semibold"), local("YouTubeSans-Semibold"),
-        local("Roboto Bold");
-}
-
-@font-face {
-    font-family: "YouTube Sans";
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
-    src:
-        local("YouTube Sans Bold"), local("YouTubeSans-Bold"),
-        local("Roboto Bold");
+    src: url("/fonts/youtube-sans.woff2") format("woff2");
 }
 
 :root {
