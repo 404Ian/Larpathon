@@ -6,7 +6,7 @@ const IB_SIZE = {
     md: "h-[40px] w-[40px]",
     sm: "h-[32px] w-[32px]",
     xl: "h-[44px] w-[44px]",
-    oc: "ml-[10px] h-[38px] w-[38px] border border-solid border-[color:var(--line2)]",
+    oc: "ml-[10px] h-[38px] w-[38px] border border-solid border-line2",
 };
 export function IconBtn({
     size = "md",
@@ -17,7 +17,7 @@ export function IconBtn({
     return (
         <button
             {...p}
-            className={`relative inline-flex flex-none cursor-pointer items-center justify-center rounded-full bg-transparent p-0 text-[color:var(--tx)] transition-colors duration-150 hover:bg-[var(--hover)] active:bg-[var(--tonal-h)] ${IB_SIZE[size]} ${className}`}
+            className={`relative inline-flex flex-none cursor-pointer items-center justify-center rounded-full bg-transparent p-0 text-tx transition-colors duration-150 hover:bg-hover active:bg-tonal-h ${IB_SIZE[size]} ${className}`}
         >
             {children}
         </button>
@@ -26,10 +26,10 @@ export function IconBtn({
 
 /* Pill button: .btn.tonal / .btn.outline / .btn.filled */
 const BTN = {
-    tonal: "bg-[var(--tonal)] leading-[36px] hover:bg-[var(--tonal-h)]",
-    filled: "bg-[var(--filled)] text-[color:var(--filled-tx)] leading-[36px] hover:bg-[var(--filled-h)]",
+    tonal: "bg-tonal leading-[36px] hover:bg-tonal-h",
+    filled: "bg-filled text-filled-tx leading-[36px] hover:bg-filled-h",
     outline:
-        "border border-solid border-[color:var(--line2)] bg-transparent leading-[34px] hover:bg-[var(--hover)]",
+        "border border-solid border-line2 bg-transparent leading-[34px] hover:bg-hover",
 };
 export function Btn({
     variant = "tonal",
@@ -50,7 +50,7 @@ export function Btn({
 /* Round tonal icon button (.rbtn) */
 export function RBtn({ name }: { name: string }) {
     return (
-        <button className="inline-flex h-[36px] w-[36px] cursor-pointer items-center justify-center rounded-full bg-[var(--tonal)] text-[color:var(--tx)] transition-colors duration-150 hover:bg-[var(--tonal-h)]">
+        <button className="inline-flex h-[36px] w-[36px] cursor-pointer items-center justify-center rounded-full bg-tonal text-tx transition-colors duration-150 hover:bg-tonal-h">
             <Ic name={name} className="h-[20px] w-[20px]" />
         </button>
     );
@@ -89,7 +89,7 @@ export function Trend({ dir }: { dir: "up" | "dn" }) {
     return (
         <svg
             viewBox="0 0 18 18"
-            className={`h-[18px] w-[18px] flex-none ${dir === "up" ? "text-[color:var(--green)]" : "text-[color:var(--tx2)]"}`}
+            className={`h-[18px] w-[18px] flex-none ${dir === "up" ? "text-green" : "text-tx2"}`}
             aria-hidden
         >
             <circle cx="9" cy="9" r="9" fill="currentColor" />
@@ -119,7 +119,7 @@ export function Card({
 }) {
     return (
         <section
-            className={`min-w-0 rounded-[12px] border border-solid border-[color:var(--cbd)] bg-[var(--card)] p-[24px] ${className}`}
+            className={`min-w-0 rounded-[12px] border border-solid border-cbd bg-card p-[24px] ${className}`}
         >
             {children}
         </section>

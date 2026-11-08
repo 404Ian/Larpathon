@@ -25,7 +25,7 @@ export const Header: React.FC<HeaderProps> = ({
     const [searchFocused, setSearchFocused] = useState(false);
 
     return (
-        <header className="fixed inset-x-0 top-0 z-50 flex h-[64px] items-center bg-[var(--bg)] pl-[16px] pr-[24px] [body.lt_&]:shadow-[0_1px_2px_rgba(0,0,0,0.1),inset_0_-1px_0_rgba(0,0,0,0.1)]">
+        <header className="fixed inset-x-0 top-0 z-50 flex h-[64px] items-center bg-bg pl-[16px] pr-[24px] [body.lt_&]:shadow-[0_1px_2px_rgba(0,0,0,0.1),inset_0_-1px_0_rgba(0,0,0,0.1)]">
             <IconBtn
                 size="xl"
                 data-act="nav"
@@ -40,18 +40,16 @@ export const Header: React.FC<HeaderProps> = ({
             <PlaceholderLogo />
 
             <div
-                className={`absolute left-1/2 top-[12px] flex h-[40px] w-[min(768px,40vw)] -translate-x-1/2 items-center rounded-[20px] border border-solid bg-[var(--input)] max-[1100px]:w-[min(420px,34vw)] ${
-                    searchFocused
-                        ? "border-[color:var(--blue)]"
-                        : "border-transparent"
+                className={`absolute left-1/2 top-[12px] flex h-[40px] w-[min(768px,40vw)] -translate-x-1/2 items-center rounded-[20px] border border-solid bg-input max-[1100px]:w-[min(420px,34vw)] ${
+                    searchFocused ? "border-blue" : "border-transparent"
                 }`}
             >
-                <span className="flex w-[48px] justify-center text-[color:var(--tx2)]">
+                <span className="flex w-[48px] justify-center text-tx2">
                     <Ic name="search" />
                 </span>
                 <input
                     id="sq"
-                    className="h-[38px] min-w-0 flex-1 border-0 bg-transparent px-[2px] py-[1px] text-[15px] outline-none placeholder:text-[color:var(--tx2)]"
+                    className="h-[38px] min-w-0 flex-1 border-0 bg-transparent px-[2px] py-[1px] text-[15px] outline-none placeholder:text-tx2"
                     placeholder="Search across your channel"
                     autoComplete="off"
                     spellCheck={false}
@@ -62,7 +60,7 @@ export const Header: React.FC<HeaderProps> = ({
                 />
                 {searchValue && (
                     <button
-                        className="flex h-[38px] w-[40px] cursor-pointer items-center justify-center border-0 bg-transparent text-[color:var(--tx2)]"
+                        className="flex h-[38px] w-[40px] cursor-pointer items-center justify-center border-0 bg-transparent text-tx2"
                         data-act="sclear"
                         aria-label="Clear"
                         type="button"
@@ -104,7 +102,7 @@ export const Header: React.FC<HeaderProps> = ({
                 onClick={onToggleAskStudio}
             >
                 <span
-                    className="inline-flex h-[20px] w-[20px] flex-none bg-[image:var(--ai)]"
+                    className="inline-flex h-[20px] w-[20px] flex-none bg-ai"
                     style={{ WebkitMask: SPARK_MASK, mask: SPARK_MASK }}
                 />
                 <span>Ask Studio</span>
@@ -119,7 +117,7 @@ export const Header: React.FC<HeaderProps> = ({
             >
                 <Ic
                     name="create"
-                    className="ml-[-4px] h-[24px] w-[24px] text-[color:var(--red)]"
+                    className="ml-[-4px] h-[24px] w-[24px] text-red"
                 />
                 <span>Create</span>
             </Btn>
@@ -132,7 +130,7 @@ export const Header: React.FC<HeaderProps> = ({
                 onClick={toggleTheme}
             >
                 <img
-                    className="block h-[32px] w-[32px] rounded-full bg-[var(--thumb)] object-cover"
+                    className="block h-[32px] w-[32px] rounded-full bg-thumb object-cover"
                     src={AVATAR_SP}
                     width={32}
                     height={32}

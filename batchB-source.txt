@@ -1,0 +1,1336 @@
+=== FILE: tailwind.config.js ===
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        bg: 'var(--bg)',
+        card: 'var(--card)',
+        panel: 'var(--panel)',
+        menu: 'var(--menu)',
+        dialog: 'var(--dialog)',
+        'nav-on': 'var(--nav-on)',
+        'nav-h': 'var(--nav-h)',
+        input: 'var(--input)',
+        tx: 'var(--tx)',
+        tx2: 'var(--tx2)',
+        tx3: 'var(--tx3)',
+        line: 'var(--line)',
+        line2: 'var(--line2)',
+        cbd: 'var(--cbd)',
+        tonal: 'var(--tonal)',
+        'tonal-h': 'var(--tonal-h)',
+        hover: 'var(--hover)',
+        'row-h': 'var(--row-h)',
+        blue: 'var(--blue)',
+        chart: 'var(--chart)',
+        'chart-fill': 'var(--chart-fill)',
+        grid: 'var(--grid)',
+        axis: 'var(--axis)',
+        base: 'var(--base)',
+        green: 'var(--green)',
+        red: 'var(--red)',
+        'tab-off': 'var(--tab-off)',
+        thumb: 'var(--thumb)',
+        track: 'var(--track)',
+        tip: 'var(--tip)',
+        htip: 'var(--htip)',
+        'toast-bg': 'var(--toast-bg)',
+        'toast-tx': 'var(--toast-tx)',
+        filled: 'var(--filled)',
+        'filled-tx': 'var(--filled-tx)',
+        'filled-h': 'var(--filled-h)',
+        fld: 'var(--fld)',
+        bulk: 'var(--bulk)',
+        scrim: 'var(--scrim)',
+        live: 'var(--live)',
+      },
+      fontFamily: {
+        sans: ['Roboto', 'Arial', 'sans-serif'],
+        display: ['"YouTube Sans"', 'Roboto', 'Arial', 'sans-serif'],
+      },
+      boxShadow: {
+        studio: 'var(--shadow)',
+      },
+      spacing: {
+        header: '64px',
+        sidebar: '256px',
+        'sidebar-mini': '72px',
+        drawer: '380px',
+      },
+      transitionTimingFunction: {
+        studio: 'var(--e)',
+      },
+    },
+  },
+  plugins: [],
+};
+
+
+=== FILE: src/index.css ===
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local("Roboto"), local("Roboto-Regular");
+}
+
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: local("Roboto Medium"), local("Roboto-Medium");
+}
+
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local("Roboto Bold"), local("Roboto-Bold");
+}
+
+@font-face {
+    font-family: "YouTube Sans";
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src:
+        local("YouTube Sans Semibold"), local("YouTubeSans-Semibold"),
+        local("Roboto Bold");
+}
+
+@font-face {
+    font-family: "YouTube Sans";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src:
+        local("YouTube Sans Bold"), local("YouTubeSans-Bold"),
+        local("Roboto Bold");
+}
+
+:root {
+    --e: cubic-bezier(0.2, 0, 0, 1);
+    --nav: 256px;
+    --ask: 380px;
+}
+
+body.dk {
+    --bg: #282828;
+    --card: #282828;
+    --input: #1f1f1f;
+    --tonal: rgba(255, 255, 255, 0.1);
+    --tonal-h: rgba(255, 255, 255, 0.2);
+    --filled: #ffffff;
+    --filled-tx: #0f0f0f;
+    --filled-h: #d9d9d9;
+    --hover: rgba(255, 255, 255, 0.08);
+    --row-h: #1f1f1f;
+    --nav-on: #1f1f1f;
+    --thumb: #1f1f1f;
+    --tx: #ffffff;
+    --tx2: #aaaaaa;
+    --tx3: #717171;
+    --blue: #3ea6ff;
+    --green: #2ba640;
+    --red: #ff4e45;
+    --line: rgba(255, 255, 255, 0.1);
+    --line2: rgba(255, 255, 255, 0.15);
+    --cbd: rgba(255, 255, 255, 0.2);
+    --ai: linear-gradient(135deg, #3ea6ff 0%, #a87ffb 50%, #ff77e9 100%);
+    color-scheme: dark;
+}
+
+body.lt {
+    --bg: #ffffff;
+    --card: #ffffff;
+    --input: #f2f2f2;
+    --tonal: rgba(0, 0, 0, 0.05);
+    --tonal-h: rgba(0, 0, 0, 0.1);
+    --filled: #0f0f0f;
+    --filled-tx: #ffffff;
+    --filled-h: #272727;
+    --hover: rgba(0, 0, 0, 0.05);
+    --row-h: #f9f9f9;
+    --nav-on: #f2f2f2;
+    --thumb: #e5e5e5;
+    --tx: #0f0f0f;
+    --tx2: #606060;
+    --tx3: #909090;
+    --blue: #065fd4;
+    --green: #007800;
+    --red: #cc0000;
+    --line: rgba(0, 0, 0, 0.1);
+    --line2: rgba(0, 0, 0, 0.15);
+    --cbd: rgba(0, 0, 0, 0.12);
+    --ai: linear-gradient(135deg, #065fd4 0%, #8c52ff 50%, #e040fb 100%);
+    color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--tx);
+    font-family:
+        "Roboto",
+        -apple-system,
+        BlinkMacSystemFont,
+        sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: 0;
+    outline: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid var(--line);
+    margin: 0;
+}
+
+.ic {
+    width: 24px;
+    height: 24px;
+    flex: 0 0 auto;
+    display: block;
+}
+
+@keyframes pl {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.35;
+    }
+}
+
+@keyframes grow {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes growy {
+    from {
+        transform: scaleY(0);
+    }
+    to {
+        transform: scaleY(1);
+    }
+}
+
+@keyframes rot {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes shim {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+=== FILE: src/main.tsx ===
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.tsx";
+
+createRoot(document.getElementById("root")!).render(
+    <StrictMode>
+        <App />
+    </StrictMode>,
+);
+
+
+=== FILE: src/components/AppLayout.tsx ===
+import React, { useState, type CSSProperties } from "react";
+import { Outlet } from "react-router-dom";
+import { Header } from "./Header";
+import { Sidebar } from "./Sidebar";
+import { AskStudioDrawer } from "./AskStudioDrawer";
+import { UploadModal } from "./UploadModal";
+import { SettingsModal } from "./SettingsModal";
+import { FeedbackModal } from "./FeedbackModal";
+
+export const AppLayout: React.FC = () => {
+    const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+    const [askStudioOpen, setAskStudioOpen] = useState(false);
+    const [uploadOpen, setUploadOpen] = useState(false);
+    const [settingsOpen, setSettingsOpen] = useState(false);
+    const [feedbackOpen, setFeedbackOpen] = useState(false);
+
+    return (
+        // --nav drives the sidebar width and the main content offset
+        <div
+            style={
+                {
+                    "--nav": sidebarCollapsed ? "72px" : "256px",
+                } as CSSProperties
+            }
+        >
+            <Header
+                onToggleSidebar={() => setSidebarCollapsed((prev) => !prev)}
+                onToggleAskStudio={() => setAskStudioOpen((prev) => !prev)}
+                onOpenUpload={() => setUploadOpen(true)}
+            />
+
+            <Sidebar
+                collapsed={sidebarCollapsed}
+                onOpenSettings={() => setSettingsOpen(true)}
+                onOpenFeedback={() => setFeedbackOpen(true)}
+            />
+
+            <main
+                className="min-h-screen pt-[64px] transition-[margin] duration-200 ease-[cubic-bezier(0.2,0,0,1)]"
+                style={{
+                    marginLeft: "var(--nav)",
+                    marginRight: askStudioOpen
+                        ? "calc(380px + 32px)"
+                        : undefined,
+                }}
+            >
+                <div>
+                    <Outlet
+                        context={{ onOpenUpload: () => setUploadOpen(true) }}
+                    />
+                </div>
+            </main>
+
+            <AskStudioDrawer
+                open={askStudioOpen}
+                onClose={() => setAskStudioOpen(false)}
+            />
+            <UploadModal
+                open={uploadOpen}
+                onClose={() => setUploadOpen(false)}
+            />
+            <SettingsModal
+                open={settingsOpen}
+                onClose={() => setSettingsOpen(false)}
+            />
+            <FeedbackModal
+                open={feedbackOpen}
+                onClose={() => setFeedbackOpen(false)}
+            />
+        </div>
+    );
+};
+
+
+=== FILE: src/components/Header.tsx ===
+import React, { useState } from "react";
+import { PlaceholderLogo } from "./PlaceholderLogo";
+import { useTheme } from "../context/ThemeContext";
+import { Ic } from "./Ic";
+import { Btn, IconBtn } from "./ui";
+import { AVATAR_SP } from "./avatar";
+
+interface HeaderProps {
+    onToggleSidebar: () => void;
+    onToggleAskStudio: () => void;
+    onOpenUpload: () => void;
+}
+
+// gradient sparkle used by the Ask Studio button (mask taken from the original CSS)
+const SPARK_MASK =
+    "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1c.4 5.9 5.1 10.6 11 11-5.9.4-10.6 5.1-11 11-.4-5.9-5.1-10.6-11-11 5.9-.4 10.6-5.1 11-11Z'/%3E%3C/svg%3E\") center / contain no-repeat";
+
+export const Header: React.FC<HeaderProps> = ({
+    onToggleSidebar,
+    onToggleAskStudio,
+    onOpenUpload,
+}) => {
+    const { toggleTheme } = useTheme();
+    const [searchValue, setSearchValue] = useState("");
+    const [searchFocused, setSearchFocused] = useState(false);
+
+    return (
+        <header className="fixed inset-x-0 top-0 z-50 flex h-[64px] items-center bg-[var(--bg)] pl-[16px] pr-[24px] [body.lt_&]:shadow-[0_1px_2px_rgba(0,0,0,0.1),inset_0_-1px_0_rgba(0,0,0,0.1)]">
+            <IconBtn
+                size="xl"
+                data-act="nav"
+                data-tip="Menu"
+                aria-label="Menu"
+                type="button"
+                onClick={onToggleSidebar}
+            >
+                <Ic name="menu" />
+            </IconBtn>
+
+            <PlaceholderLogo />
+
+            <div
+                className={`absolute left-1/2 top-[12px] flex h-[40px] w-[min(768px,40vw)] -translate-x-1/2 items-center rounded-[20px] border border-solid bg-[var(--input)] max-[1100px]:w-[min(420px,34vw)] ${
+                    searchFocused
+                        ? "border-[color:var(--blue)]"
+                        : "border-transparent"
+                }`}
+            >
+                <span className="flex w-[48px] justify-center text-[color:var(--tx2)]">
+                    <Ic name="search" />
+                </span>
+                <input
+                    id="sq"
+                    className="h-[38px] min-w-0 flex-1 border-0 bg-transparent px-[2px] py-[1px] text-[15px] outline-none placeholder:text-[color:var(--tx2)]"
+                    placeholder="Search across your channel"
+                    autoComplete="off"
+                    spellCheck={false}
+                    value={searchValue}
+                    onChange={(e) => setSearchValue(e.target.value)}
+                    onFocus={() => setSearchFocused(true)}
+                    onBlur={() => setSearchFocused(false)}
+                />
+                {searchValue && (
+                    <button
+                        className="flex h-[38px] w-[40px] cursor-pointer items-center justify-center border-0 bg-transparent text-[color:var(--tx2)]"
+                        data-act="sclear"
+                        aria-label="Clear"
+                        type="button"
+                        onClick={() => setSearchValue("")}
+                    >
+                        <Ic name="close" className="h-[20px] w-[20px]" />
+                    </button>
+                )}
+            </div>
+
+            <span className="flex-1" />
+
+            <IconBtn
+                data-act="help"
+                data-tip="Help"
+                aria-label="Help"
+                type="button"
+            >
+                <Ic name="help" />
+            </IconBtn>
+
+            <IconBtn
+                data-act="notifs"
+                data-tip="Notifications"
+                aria-label="Notifications"
+                type="button"
+            >
+                <Ic name="bell" />
+                <span className="absolute right-[4px] top-[5px] h-[16px] min-w-[16px] rounded-[8px] bg-[#cc0000] px-[4px] text-center text-[11px] font-medium leading-[16px] text-white">
+                    3
+                </span>
+            </IconBtn>
+
+            <Btn
+                variant="outline"
+                className="ml-[8px] !gap-[8px] !pl-[12px] !pr-[16px]"
+                data-act="ask"
+                type="button"
+                onClick={onToggleAskStudio}
+            >
+                <span
+                    className="inline-flex h-[20px] w-[20px] flex-none bg-[image:var(--ai)]"
+                    style={{ WebkitMask: SPARK_MASK, mask: SPARK_MASK }}
+                />
+                <span>Ask Studio</span>
+            </Btn>
+
+            <Btn
+                variant="outline"
+                className="ml-[8px]"
+                data-act="create"
+                type="button"
+                onClick={onOpenUpload}
+            >
+                <Ic
+                    name="create"
+                    className="ml-[-4px] h-[24px] w-[24px] text-[color:var(--red)]"
+                />
+                <span>Create</span>
+            </Btn>
+
+            <button
+                className="ml-[18px] mr-[1px] h-[32px] w-[32px] cursor-pointer overflow-hidden rounded-full border-0 bg-transparent p-0"
+                data-act="account"
+                aria-label="Account"
+                type="button"
+                onClick={toggleTheme}
+            >
+                <img
+                    className="block h-[32px] w-[32px] rounded-full bg-[var(--thumb)] object-cover"
+                    src={AVATAR_SP}
+                    width={32}
+                    height={32}
+                    alt=""
+                    referrerPolicy="no-referrer"
+                />
+            </button>
+        </header>
+    );
+};
+
+
+=== FILE: src/components/Sidebar.tsx ===
+import React from "react";
+import { NavLink } from "react-router-dom";
+import { Ic } from "./Ic";
+import { AVATAR_SP } from "./avatar";
+
+interface SidebarProps {
+    onOpenSettings: () => void;
+    onOpenFeedback: () => void;
+    collapsed?: boolean;
+}
+
+const ITEMS: { to: string; go: string; icon: string; label: string }[] = [
+    { to: "/", go: "dashboard", icon: "dashboard", label: "Dashboard" },
+    { to: "/content", go: "content/videos", icon: "content", label: "Content" },
+    {
+        to: "/analytics",
+        go: "analytics/overview",
+        icon: "analytics",
+        label: "Analytics",
+    },
+    { to: "/comments", go: "comments", icon: "community", label: "Community" },
+    {
+        to: "/subtitles",
+        go: "subtitles",
+        icon: "languages",
+        label: "Languages",
+    },
+    {
+        to: "/copyright",
+        go: "copyright",
+        icon: "copyright",
+        label: "Content detection",
+    },
+    { to: "/earn", go: "earn", icon: "earn", label: "Earn" },
+    {
+        to: "/customization",
+        go: "customization",
+        icon: "customization",
+        label: "Customization",
+    },
+    { to: "/audio", go: "audio", icon: "audio", label: "Audio library" },
+];
+
+const NI =
+    "mx-[12px] flex h-[48px] flex-none cursor-pointer items-center gap-[24px] whitespace-nowrap rounded-[8px] text-[15px] leading-[24px] text-[color:var(--tx)]";
+
+export const Sidebar: React.FC<SidebarProps> = ({
+    onOpenSettings,
+    onOpenFeedback,
+    collapsed = false,
+}) => {
+    const pad = collapsed ? "justify-center px-0" : "px-[12px]";
+
+    return (
+        <nav className="fixed bottom-0 left-0 top-[64px] z-40 flex w-[var(--nav)] flex-col overflow-y-auto overflow-x-hidden bg-[var(--bg)] transition-[width] duration-200 ease-[cubic-bezier(0.2,0,0,1)] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden [body.lt_&]:shadow-[1px_0_0_rgba(0,0,0,0.1)]">
+            <div
+                className={`flex flex-none flex-col items-center ${collapsed ? "pb-[8px] pt-[16px]" : "pb-[16px] pt-[24px]"}`}
+            >
+                <a
+                    className="block"
+                    href="#"
+                    target="_blank"
+                    rel="noopener"
+                    data-tip="View channel on YouTube"
+                >
+                    <img
+                        className={`inline align-baseline rounded-full bg-[var(--thumb)] object-cover transition-[width,height] duration-200 ease-[cubic-bezier(0.2,0,0,1)] ${
+                            collapsed
+                                ? "h-[32px] w-[32px]"
+                                : "h-[112px] w-[112px]"
+                        }`}
+                        src={AVATAR_SP}
+                        width={112}
+                        height={112}
+                        alt=""
+                        referrerPolicy="no-referrer"
+                    />
+                </a>
+                {!collapsed && (
+                    <>
+                        <div className="mt-[14px] text-[15px] font-medium leading-[24px]">
+                            Your channel
+                        </div>
+                        <div className="max-w-[220px] truncate text-[12px] leading-[16px] text-[color:var(--tx2)]">
+                            SynthPulse
+                        </div>
+                    </>
+                )}
+            </div>
+
+            <div className="flex flex-none flex-col">
+                {ITEMS.map((it) => (
+                    <NavLink
+                        key={it.to}
+                        to={it.to}
+                        data-go={it.go}
+                        className={({ isActive }) =>
+                            `${NI} ${pad} ${isActive ? "bg-[var(--nav-on)] font-medium" : "hover:bg-[var(--row-h)]"}`
+                        }
+                    >
+                        <Ic name={it.icon} />
+                        {!collapsed && <span>{it.label}</span>}
+                    </NavLink>
+                ))}
+            </div>
+
+            <div className="mt-auto flex flex-col pb-[8px] pt-[16px]">
+                <a
+                    className={`${NI} ${pad} hover:bg-[var(--row-h)]`}
+                    href="#"
+                    data-act="settings"
+                    onClick={(e) => {
+                        e.preventDefault();
+                        onOpenSettings();
+                    }}
+                >
+                    <Ic name="settings" />
+                    {!collapsed && <span>Settings</span>}
+                </a>
+                <a
+                    className={`${NI} ${pad} hover:bg-[var(--row-h)]`}
+                    href="#"
+                    data-act="feedback"
+                    onClick={(e) => {
+                        e.preventDefault();
+                        onOpenFeedback();
+                    }}
+                >
+                    <Ic name="feedback" />
+                    {!collapsed && <span>Send feedback</span>}
+                </a>
+            </div>
+        </nav>
+    );
+};
+
+
+=== FILE: src/components/ui.tsx ===
+import type { ButtonHTMLAttributes, ReactNode, CSSProperties } from "react";
+import { Ic } from "./Ic";
+
+/* Icon button: .ib  (40px) / .ib.sm (32px) / .ib.oc (38px outlined) / .hb-menu (44px) */
+const IB_SIZE = {
+    md: "h-[40px] w-[40px]",
+    sm: "h-[32px] w-[32px]",
+    xl: "h-[44px] w-[44px]",
+    oc: "ml-[10px] h-[38px] w-[38px] border border-solid border-[color:var(--line2)]",
+};
+export function IconBtn({
+    size = "md",
+    className = "",
+    children,
+    ...p
+}: { size?: keyof typeof IB_SIZE } & ButtonHTMLAttributes<HTMLButtonElement>) {
+    return (
+        <button
+            {...p}
+            className={`relative inline-flex flex-none cursor-pointer items-center justify-center rounded-full bg-transparent p-0 text-[color:var(--tx)] transition-colors duration-150 hover:bg-[var(--hover)] active:bg-[var(--tonal-h)] ${IB_SIZE[size]} ${className}`}
+        >
+            {children}
+        </button>
+    );
+}
+
+/* Pill button: .btn.tonal / .btn.outline / .btn.filled */
+const BTN = {
+    tonal: "bg-[var(--tonal)] leading-[36px] hover:bg-[var(--tonal-h)]",
+    filled: "bg-[var(--filled)] text-[color:var(--filled-tx)] leading-[36px] hover:bg-[var(--filled-h)]",
+    outline:
+        "border border-solid border-[color:var(--line2)] bg-transparent leading-[34px] hover:bg-[var(--hover)]",
+};
+export function Btn({
+    variant = "tonal",
+    className = "",
+    children,
+    ...p
+}: { variant?: keyof typeof BTN } & ButtonHTMLAttributes<HTMLButtonElement>) {
+    return (
+        <button
+            {...p}
+            className={`inline-flex h-[36px] flex-none cursor-pointer items-center gap-[6px] whitespace-nowrap rounded-[18px] px-[16px] text-[14px] font-medium transition-colors duration-150 ${BTN[variant]} ${className}`}
+        >
+            {children}
+        </button>
+    );
+}
+
+/* Round tonal icon button (.rbtn) */
+export function RBtn({ name }: { name: string }) {
+    return (
+        <button className="inline-flex h-[36px] w-[36px] cursor-pointer items-center justify-center rounded-full bg-[var(--tonal)] text-[color:var(--tx)] transition-colors duration-150 hover:bg-[var(--tonal-h)]">
+            <Ic name={name} className="h-[20px] w-[20px]" />
+        </button>
+    );
+}
+
+/* Letter avatar (.lav) */
+export function Avatar({
+    letters,
+    size,
+    bg,
+    style,
+}: {
+    letters: string;
+    size: number;
+    bg: string;
+    style?: CSSProperties;
+}) {
+    return (
+        <span
+            className="inline-flex flex-none items-center justify-center rounded-full font-medium text-white"
+            style={{
+                width: size,
+                height: size,
+                background: bg,
+                fontSize: Math.round(size * 0.4),
+                ...style,
+            }}
+        >
+            {letters}
+        </span>
+    );
+}
+
+/* Circular trend badge (.ti up / .ti dn) */
+export function Trend({ dir }: { dir: "up" | "dn" }) {
+    return (
+        <svg
+            viewBox="0 0 18 18"
+            className={`h-[18px] w-[18px] flex-none ${dir === "up" ? "text-[color:var(--green)]" : "text-[color:var(--tx2)]"}`}
+            aria-hidden
+        >
+            <circle cx="9" cy="9" r="9" fill="currentColor" />
+            <path
+                d={
+                    dir === "up"
+                        ? "M9 13V5M5.5 8.5 9 5l3.5 3.5"
+                        : "M9 5v8M5.5 9.5 9 13l3.5-3.5"
+                }
+                fill="none"
+                stroke="var(--card)"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </svg>
+    );
+}
+
+/* Card (.card) */
+export function Card({
+    children,
+    className = "",
+}: {
+    children: ReactNode;
+    className?: string;
+}) {
+    return (
+        <section
+            className={`min-w-0 rounded-[12px] border border-solid border-[color:var(--cbd)] bg-[var(--card)] p-[24px] ${className}`}
+        >
+            {children}
+        </section>
+    );
+}
+export const CardTitle = ({ children }: { children: ReactNode }) => (
+    <h2 className="m-0 mb-[16px] text-[18px] font-bold leading-[24px]">
+        {children}
+    </h2>
+);
+
+/* Label / value row (.kv) */
+export function Kv({
+    label,
+    children,
+}: {
+    label: ReactNode;
+    children: ReactNode;
+}) {
+    return (
+        <div className="flex min-h-[32px] items-center justify-between gap-[16px] text-[14px]">
+            <span className="min-w-0">{label}</span>
+            <span className="inline-flex items-center gap-[8px]">
+                {children}
+            </span>
+        </div>
+    );
+}
+
+/* Placeholder thumbnail (swap for real images) */
+export function Thumb({
+    a,
+    b,
+    className = "",
+}: {
+    a: string;
+    b: string;
+    className?: string;
+}) {
+    return (
+        <div
+            className={`h-full w-full ${className}`}
+            style={{ background: `linear-gradient(135deg, ${a}, ${b})` }}
+        />
+    );
+}
+
+
+=== FILE: src/components/AskStudioDrawer.tsx ===
+import React from "react";
+import { Icon } from "../icons";
+import { mockData } from "../mock";
+
+interface AskStudioDrawerProps {
+    open: boolean;
+    onClose: () => void;
+}
+
+export const AskStudioDrawer: React.FC<AskStudioDrawerProps> = ({
+    open,
+    onClose,
+}) => {
+    if (!open) return null;
+
+    return (
+        <aside
+            id="ask"
+            aria-label="Ask Studio"
+            className="fixed top-header right-0 bottom-0 w-drawer bg-bg border-l border-line z-50 flex flex-col justify-between shadow-studio animate-slideInRight select-none"
+        >
+            {/* Header */}
+            <div className="h-14 px-4 flex items-center justify-between border-b border-line">
+                <div className="flex items-center gap-2">
+                    <button
+                        type="button"
+                        className="w-9 h-9 rounded-full hover:bg-hover flex items-center justify-center text-tx focus:outline-none"
+                        aria-label="Chats"
+                    >
+                        <Icon name="bars" className="w-5 h-5" />
+                    </button>
+                    <span className="font-medium text-[16px] text-tx">
+                        Ask Studio
+                    </span>
+                </div>
+
+                <div className="flex items-center gap-1">
+                    <button
+                        type="button"
+                        className="w-9 h-9 rounded-full hover:bg-hover flex items-center justify-center text-tx focus:outline-none"
+                        aria-label="New conversation"
+                    >
+                        <Icon name="newchat" className="w-5 h-5" />
+                    </button>
+                    <button
+                        type="button"
+                        onClick={onClose}
+                        className="w-9 h-9 rounded-full hover:bg-hover flex items-center justify-center text-tx focus:outline-none"
+                        aria-label="Close"
+                    >
+                        <Icon name="close" className="w-5 h-5" />
+                    </button>
+                </div>
+            </div>
+
+            {/* Body / Prompts */}
+            <div className="flex-1 overflow-y-auto p-5 flex flex-col justify-between">
+                <div>
+                    <div className="mt-4 mb-6">
+                        <h2 className="text-[22px] font-semibold text-tx leading-tight">
+                            Hello, {mockData.S.name}
+                        </h2>
+                        <p className="text-[16px] text-tx2 mt-1">
+                            How can I help you?
+                        </p>
+                    </div>
+
+                    <div className="flex flex-col gap-2.5">
+                        {[
+                            "How can Ask Studio help me?",
+                            "Create a thumbnail for my long-form video",
+                            "Suggest new video ideas",
+                            "Summarize my channel performance",
+                            "More suggestions",
+                        ].map((chip, idx) => (
+                            <button
+                                key={idx}
+                                type="button"
+                                className="w-full text-left p-3.5 rounded-xl border border-line bg-card hover:bg-hover hover:border-tx2/40 text-[13px] text-tx transition-all focus:outline-none flex items-center justify-between group"
+                            >
+                                <span>{chip}</span>
+                                <Icon
+                                    name="sparkle"
+                                    className="w-4 h-4 text-tx3 opacity-0 group-hover:opacity-100 transition-opacity"
+                                />
+                            </button>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Input & Disclaimer */}
+                <div className="mt-6 pt-4 border-t border-line/60">
+                    <div className="flex items-center bg-input border border-line rounded-2xl px-4 py-2.5 focus-within:border-blue transition-colors">
+                        <input
+                            type="text"
+                            placeholder="Ask anything about your channel..."
+                            className="w-full bg-transparent text-[13px] text-tx placeholder:text-tx3 outline-none"
+                        />
+                        <button
+                            type="button"
+                            className="text-tx3 hover:text-tx focus:outline-none ml-2"
+                            aria-label="Send message"
+                        >
+                            <Icon name="send" className="w-5 h-5" />
+                        </button>
+                    </div>
+                    <p className="text-[11px] text-tx3 text-center mt-2 leading-relaxed">
+                        AI can make mistakes. You are responsible for the
+                        content you publish.
+                    </p>
+                </div>
+            </div>
+        </aside>
+    );
+};
+
+
+=== FILE: src/pages/DashboardPage.tsx ===
+import { useState } from "react";
+import { Ic } from "../components/Ic";
+import { BulbIcon, ComposeIcon } from "../components/DashIcons";
+import {
+    Avatar,
+    Btn,
+    Card,
+    CardTitle,
+    IconBtn,
+    Kv,
+    RBtn,
+    Thumb,
+    Trend,
+} from "../components/ui";
+import {
+    ANALYTICS,
+    COMMENTS,
+    FOOTER_LINKS,
+    IDEAS_FOR_YOU,
+    INSIDER,
+    LATEST_POST_EMPTY,
+    LATEST_SHORT,
+    LATEST_VIDEO,
+    SUBSCRIBERS,
+    WHATS_NEW,
+    type Perf,
+} from "../mock/dashboard";
+
+const HR = "h-0 border-0 border-t border-solid border-[color:var(--line)]";
+const Divider = () => <hr className={`my-[12px] ${HR}`} />;
+const SecTitle = ({ t, s }: { t: string; s: string }) => (
+    <>
+        <div className="text-[16px] font-medium leading-[24px]">{t}</div>
+        <div className="mb-[8px] text-[12px] leading-[16px] text-[color:var(--tx2)]">
+            {s}
+        </div>
+    </>
+);
+const Sub = ({ children }: { children: string }) => (
+    <div className="mb-[8px] text-[12px] leading-[16px] text-[color:var(--tx2)]">
+        {children}
+    </div>
+);
+
+/* Latest video / Latest Short */
+function Performance({ d }: { d: Perf }) {
+    const [open, setOpen] = useState(true);
+    const stat = "inline-flex items-center gap-[8px]";
+    return (
+        <Card>
+            <CardTitle>{d.heading}</CardTitle>
+            <div className="relative aspect-video overflow-hidden rounded-[12px] bg-[var(--thumb)]">
+                <Thumb a={d.thumb[0]} b={d.thumb[1]} />
+                <div className="absolute inset-0 bg-[linear-gradient(transparent_45%,rgba(0,0,0,0.75))]" />
+                <div className="absolute bottom-[12px] left-[24px] right-[24px] line-clamp-2 text-[15px] font-medium leading-[24px] text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.4)]">
+                    {d.title}
+                </div>
+            </div>
+
+            <div
+                className={`flex h-[52px] items-center gap-[24px] text-[color:var(--tx2)] ${open ? "border-b border-solid border-[color:var(--line)]" : ""}`}
+            >
+                <span className={stat}>
+                    <Ic name="bars" className="h-[20px] w-[20px]" />
+                    {d.views}
+                </span>
+                <span className={stat}>
+                    <Ic name="comment" className="h-[20px] w-[20px]" />
+                    {d.comments}
+                </span>
+                <span className={stat}>
+                    <Ic name="thumb" className="h-[20px] w-[20px]" />
+                    {d.likes}
+                </span>
+                <span className="flex-1" />
+                <button
+                    onClick={() => setOpen((o) => !o)}
+                    className="cursor-pointer border-0 bg-transparent p-0 text-[color:var(--tx)]"
+                    aria-label="Toggle details"
+                >
+                    <Ic
+                        name="chevron-up"
+                        className={`h-[24px] w-[24px] transition-transform duration-200 ${open ? "" : "rotate-180"}`}
+                    />
+                </button>
+            </div>
+
+            {open && (
+                <>
+                    <div className="pb-[6px] pt-[16px] text-[14px] text-[color:var(--tx2)]">
+                        {d.window}
+                    </div>
+                    {d.rows.map((r) => (
+                        <Kv key={r.label} label={r.label}>
+                            {r.chevron ? (
+                                <span className="inline-flex items-center gap-[2px]">
+                                    {r.value}
+                                    <Ic
+                                        name="chevron-right"
+                                        className="h-[18px] w-[18px]"
+                                    />
+                                </span>
+                            ) : (
+                                <>
+                                    {r.value}
+                                    {r.trend && <Trend dir={r.trend} />}
+                                </>
+                            )}
+                        </Kv>
+                    ))}
+                    <div className="mt-[16px] flex flex-wrap items-center gap-x-[16px] gap-y-[12px]">
+                        <Btn>
+                            <Ic
+                                name="sparkle"
+                                className="ml-[-2px] h-[20px] w-[20px]"
+                            />
+                            Catch me up on this video
+                        </Btn>
+                        <span className="inline-flex gap-[16px]">
+                            <RBtn name="bars" />
+                            <RBtn name="comment" />
+                        </span>
+                    </div>
+                </>
+            )}
+        </Card>
+    );
+}
+
+type Props = {
+    onOpenUpload?: () => void;
+    onCreatePost?: () => void;
+    onSeeAllSubscribers?: () => void;
+    onViewMoreComments?: () => void;
+};
+
+export default function Dashboard({
+    onOpenUpload,
+    onCreatePost,
+    onSeeAllSubscribers,
+    onViewMoreComments,
+}: Props) {
+    const col = "flex min-w-0 flex-1 basis-0 flex-col gap-[24px]";
+    return (
+        <div className="max-w-[1720px] px-[24px]">
+            {/* page header */}
+            <div className="flex min-h-[55px] items-center pl-[8px] pt-[23px]">
+                <h1 className="m-0 text-[32px] font-bold leading-[40px] tracking-[-0.4px]">
+                    Channel dashboard
+                </h1>
+                <span className="flex-1" />
+                <IconBtn
+                    size="oc"
+                    className="!ml-0"
+                    aria-label="Upload"
+                    onClick={onOpenUpload}
+                >
+                    <Ic name="upload" />
+                </IconBtn>
+                <IconBtn size="oc" aria-label="Go live">
+                    <Ic name="live" />
+                </IconBtn>
+                <IconBtn
+                    size="oc"
+                    aria-label="Create post"
+                    onClick={onCreatePost}
+                >
+                    <Ic name="edit" />
+                </IconBtn>
+            </div>
+
+            <div className="mt-[24px] flex items-start gap-[24px]">
+                {/* column 1 */}
+                <div className={col}>
+                    <Performance d={LATEST_VIDEO} />
+                    <Performance d={LATEST_SHORT} />
+
+                    <Card>
+                        <CardTitle>Latest post</CardTitle>
+                        <div className="flex flex-col items-center gap-[12px] rounded-[8px] border border-solid border-[color:var(--line)] p-[24px] text-center">
+                            <ComposeIcon className="h-[56px] w-[56px] text-[color:var(--tx3)]" />
+                            <p className="m-0 text-[14px] text-[color:var(--tx2)]">
+                                {LATEST_POST_EMPTY}
+                            </p>
+                            <Btn variant="filled" onClick={onCreatePost}>
+                                Create post
+                            </Btn>
+                        </div>
+                    </Card>
+                </div>
+
+                {/* column 2 */}
+                <div className={col}>
+                    <Card>
+                        <CardTitle>Channel analytics</CardTitle>
+                        <div className="text-[14px]">Current subscribers</div>
+                        <div className="my-[2px] text-[36px] font-bold leading-[44px] tracking-[-0.3px] [font-variant-numeric:tabular-nums]">
+                            {ANALYTICS.subscribers}
+                        </div>
+                        <div className="text-[12px] leading-[16px] text-[color:var(--tx2)]">
+                            <span className="text-[color:var(--green)]">
+                                {ANALYTICS.delta}
+                            </span>{" "}
+                            in last 28 days
+                        </div>
+                        <Divider />
+                        <SecTitle t="Summary" s="Last 28 days" />
+                        {ANALYTICS.summary.map(([l, v]) => (
+                            <Kv key={l} label={l}>
+                                {v}
+                                <Trend dir="up" />
+                            </Kv>
+                        ))}
+                        <Divider />
+                        <SecTitle t="Top content" s="Last 48 hours · Views" />
+                        {ANALYTICS.top.map(([t, v]) => (
+                            <div
+                                key={t}
+                                className="flex min-h-[32px] items-center justify-between gap-[16px] text-[14px]"
+                            >
+                                <a className="min-w-0 cursor-pointer truncate hover:underline">
+                                    {t}
+                                </a>
+                                <span>{v}</span>
+                            </div>
+                        ))}
+                        <div className="mt-[16px]">
+                            <Btn>Go to channel analytics</Btn>
+                        </div>
+                    </Card>
+
+                    <Card>
+                        <CardTitle>Latest comments</CardTitle>
+                        <Sub>Channel comments I haven&apos;t responded to</Sub>
+                        {COMMENTS.map((c, i) => (
+                            <div key={c.who}>
+                                {i > 0 && <Divider />}
+                                <div className="flex items-start gap-[12px]">
+                                    <Avatar
+                                        letters={c.letter}
+                                        size={24}
+                                        bg={c.color}
+                                    />
+                                    <div className="min-w-0 flex-1">
+                                        <div className="text-[13px] text-[color:var(--tx2)]">
+                                            <span className="font-medium">
+                                                {c.who}
+                                            </span>{" "}
+                                            · {c.ago}
+                                        </div>
+                                        <div className="mt-[4px] text-[13px] [overflow-wrap:anywhere]">
+                                            {c.text}
+                                        </div>
+                                    </div>
+                                    <div className="h-[36px] w-[64px] flex-none overflow-hidden rounded-[4px] bg-[var(--thumb)]">
+                                        <Thumb a={c.thumb[0]} b={c.thumb[1]} />
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                        <div className="mt-[16px]">
+                            <Btn onClick={onViewMoreComments}>View more</Btn>
+                        </div>
+                    </Card>
+
+                    <Card>
+                        <CardTitle>Recent subscribers</CardTitle>
+                        <Sub>Last 90 days</Sub>
+                        {SUBSCRIBERS.map((s) => (
+                            <div
+                                key={s.name}
+                                className="flex items-center gap-[16px] py-[12px]"
+                            >
+                                <Avatar
+                                    letters={s.letter}
+                                    size={40}
+                                    bg={s.color}
+                                />
+                                <div>
+                                    <div className="text-[13px]">{s.name}</div>
+                                    <div className="text-[12px] leading-[16px] text-[color:var(--tx2)]">
+                                        {s.count}
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                        <div className="mt-[16px]">
+                            <Btn onClick={onSeeAllSubscribers}>See all</Btn>
+                        </div>
+                    </Card>
+                </div>
+
+                {/* column 3 */}
+                <div className={col}>
+                    <Card>
+                        <div className="flex items-center gap-[4px]">
+                            <h2 className="m-0 text-[18px] font-bold leading-[24px]">
+                                Creator Insider
+                            </h2>
+                            <span className="flex-1" />
+                            <IconBtn size="sm" aria-label="Previous">
+                                <Ic
+                                    name="chevron-left"
+                                    className="h-[20px] w-[20px]"
+                                />
+                            </IconBtn>
+                            <span className="min-w-[30px] text-center text-[12px] text-[color:var(--tx2)]">
+                                1 / 3
+                            </span>
+                            <IconBtn size="sm" aria-label="Next">
+                                <Ic
+                                    name="chevron-right"
+                                    className="h-[20px] w-[20px]"
+                                />
+                            </IconBtn>
+                        </div>
+                        <div className="mt-[16px] block aspect-[4/3] overflow-hidden rounded-[8px] bg-[var(--thumb)]">
+                            <Thumb a={INSIDER.thumb[0]} b={INSIDER.thumb[1]} />
+                        </div>
+                        <div className="mb-[4px] mt-[12px] text-[15px] font-medium leading-[24px]">
+                            {INSIDER.title}
+                        </div>
+                        <p className="m-0 text-[13px] text-[color:var(--tx2)]">
+                            {INSIDER.description}
+                        </p>
+                        <div className="mt-[16px]">
+                            <Btn>Watch on YouTube</Btn>
+                        </div>
+                    </Card>
+
+                    <Card>
+                        <CardTitle>Ideas for you</CardTitle>
+                        <Sub>Based on what your audience is watching</Sub>
+                        {IDEAS_FOR_YOU.map((t, i) => (
+                            <div
+                                key={t}
+                                className={`flex items-center gap-[12px] py-[12px] text-[13px] ${i > 0 ? "border-t border-solid border-[color:var(--line)]" : ""}`}
+                            >
+                                <BulbIcon className="h-[20px] w-[20px] text-[color:var(--tx2)]" />
+                                {t}
+                            </div>
+                        ))}
+                        <div className="mt-[4px]">
+                            <Btn>
+                                <Ic
+                                    name="sparkle"
+                                    className="ml-[-4px] h-[24px] w-[24px]"
+                                />
+                                Get more ideas
+                            </Btn>
+                        </div>
+                    </Card>
+
+                    <Card>
+                        <CardTitle>What&apos;s new in Studio</CardTitle>
+                        {WHATS_NEW.map((t, i) => (
+                            <div key={t}>
+                                {i > 0 && <Divider />}
+                                <a className="relative block cursor-pointer py-[6px] pr-[36px] text-[13px] hover:text-[color:var(--blue)]">
+                                    {t}
+                                </a>
+                            </div>
+                        ))}
+                    </Card>
+                </div>
+            </div>
+
+            {/* footer links */}
+            <div className="flex gap-[38px] pb-[32px] pt-[40px] text-[13px] text-[color:var(--tx2)]">
+                {FOOTER_LINKS.map((l) => (
+                    <a
+                        key={l}
+                        className="cursor-pointer hover:text-[color:var(--tx)]"
+                    >
+                        {l}
+                    </a>
+                ))}
+            </div>
+        </div>
+    );
+}
+
+

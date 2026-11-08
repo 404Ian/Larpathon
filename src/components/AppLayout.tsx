@@ -36,9 +36,8 @@ export const AppLayout: React.FC = () => {
             />
 
             <main
-                className="min-h-screen pt-[64px] transition-[margin] duration-200 ease-[cubic-bezier(0.2,0,0,1)]"
+                className="ml-nav min-h-screen pt-[64px] transition-[margin] duration-200 ease-studio"
                 style={{
-                    marginLeft: "var(--nav)",
                     marginRight: askStudioOpen
                         ? "calc(380px + 32px)"
                         : undefined,

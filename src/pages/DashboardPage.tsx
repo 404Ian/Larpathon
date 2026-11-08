@@ -26,18 +26,16 @@ import {
     type Perf,
 } from "../mock/dashboard";
 
-const HR = "h-0 border-0 border-t border-solid border-[color:var(--line)]";
+const HR = "h-0 border-0 border-t border-solid border-line";
 const Divider = () => <hr className={`my-[12px] ${HR}`} />;
 const SecTitle = ({ t, s }: { t: string; s: string }) => (
     <>
         <div className="text-[16px] font-medium leading-[24px]">{t}</div>
-        <div className="mb-[8px] text-[12px] leading-[16px] text-[color:var(--tx2)]">
-            {s}
-        </div>
+        <div className="mb-[8px] text-[12px] leading-[16px] text-tx2">{s}</div>
     </>
 );
 const Sub = ({ children }: { children: string }) => (
-    <div className="mb-[8px] text-[12px] leading-[16px] text-[color:var(--tx2)]">
+    <div className="mb-[8px] text-[12px] leading-[16px] text-tx2">
         {children}
     </div>
 );
@@ -49,7 +47,7 @@ function Performance({ d }: { d: Perf }) {
     return (
         <Card>
             <CardTitle>{d.heading}</CardTitle>
-            <div className="relative aspect-video overflow-hidden rounded-[12px] bg-[var(--thumb)]">
+            <div className="relative aspect-video overflow-hidden rounded-[12px] bg-thumb">
                 <Thumb a={d.thumb[0]} b={d.thumb[1]} />
                 <div className="absolute inset-0 bg-[linear-gradient(transparent_45%,rgba(0,0,0,0.75))]" />
                 <div className="absolute bottom-[12px] left-[24px] right-[24px] line-clamp-2 text-[15px] font-medium leading-[24px] text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.4)]">
@@ -58,7 +56,7 @@ function Performance({ d }: { d: Perf }) {
             </div>
 
             <div
-                className={`flex h-[52px] items-center gap-[24px] text-[color:var(--tx2)] ${open ? "border-b border-solid border-[color:var(--line)]" : ""}`}
+                className={`flex h-[52px] items-center gap-[24px] text-tx2 ${open ? "border-b border-solid border-line" : ""}`}
             >
                 <span className={stat}>
                     <Ic name="bars" className="h-[20px] w-[20px]" />
@@ -75,7 +73,7 @@ function Performance({ d }: { d: Perf }) {
                 <span className="flex-1" />
                 <button
                     onClick={() => setOpen((o) => !o)}
-                    className="cursor-pointer border-0 bg-transparent p-0 text-[color:var(--tx)]"
+                    className="cursor-pointer border-0 bg-transparent p-0 text-tx"
                     aria-label="Toggle details"
                 >
                     <Ic
@@ -87,7 +85,7 @@ function Performance({ d }: { d: Perf }) {
 
             {open && (
                 <>
-                    <div className="pb-[6px] pt-[16px] text-[14px] text-[color:var(--tx2)]">
+                    <div className="pb-[6px] pt-[16px] text-[14px] text-tx2">
                         {d.window}
                     </div>
                     {d.rows.map((r) => (
@@ -177,9 +175,9 @@ export default function Dashboard({
 
                     <Card>
                         <CardTitle>Latest post</CardTitle>
-                        <div className="flex flex-col items-center gap-[12px] rounded-[8px] border border-solid border-[color:var(--line)] p-[24px] text-center">
-                            <ComposeIcon className="h-[56px] w-[56px] text-[color:var(--tx3)]" />
-                            <p className="m-0 text-[14px] text-[color:var(--tx2)]">
+                        <div className="flex flex-col items-center gap-[12px] rounded-[8px] border border-solid border-line p-[24px] text-center">
+                            <ComposeIcon className="h-[56px] w-[56px] text-tx3" />
+                            <p className="m-0 text-[14px] text-tx2">
                                 {LATEST_POST_EMPTY}
                             </p>
                             <Btn variant="filled" onClick={onCreatePost}>
@@ -197,8 +195,8 @@ export default function Dashboard({
                         <div className="my-[2px] text-[36px] font-bold leading-[44px] tracking-[-0.3px] [font-variant-numeric:tabular-nums]">
                             {ANALYTICS.subscribers}
                         </div>
-                        <div className="text-[12px] leading-[16px] text-[color:var(--tx2)]">
-                            <span className="text-[color:var(--green)]">
+                        <div className="text-[12px] leading-[16px] text-tx2">
+                            <span className="text-green">
                                 {ANALYTICS.delta}
                             </span>{" "}
                             in last 28 days
@@ -242,7 +240,7 @@ export default function Dashboard({
                                         bg={c.color}
                                     />
                                     <div className="min-w-0 flex-1">
-                                        <div className="text-[13px] text-[color:var(--tx2)]">
+                                        <div className="text-[13px] text-tx2">
                                             <span className="font-medium">
                                                 {c.who}
                                             </span>{" "}
@@ -252,7 +250,7 @@ export default function Dashboard({
                                             {c.text}
                                         </div>
                                     </div>
-                                    <div className="h-[36px] w-[64px] flex-none overflow-hidden rounded-[4px] bg-[var(--thumb)]">
+                                    <div className="h-[36px] w-[64px] flex-none overflow-hidden rounded-[4px] bg-thumb">
                                         <Thumb a={c.thumb[0]} b={c.thumb[1]} />
                                     </div>
                                 </div>
@@ -278,7 +276,7 @@ export default function Dashboard({
                                 />
                                 <div>
                                     <div className="text-[13px]">{s.name}</div>
-                                    <div className="text-[12px] leading-[16px] text-[color:var(--tx2)]">
+                                    <div className="text-[12px] leading-[16px] text-tx2">
                                         {s.count}
                                     </div>
                                 </div>
@@ -304,7 +302,7 @@ export default function Dashboard({
                                     className="h-[20px] w-[20px]"
                                 />
                             </IconBtn>
-                            <span className="min-w-[30px] text-center text-[12px] text-[color:var(--tx2)]">
+                            <span className="min-w-[30px] text-center text-[12px] text-tx2">
                                 1 / 3
                             </span>
                             <IconBtn size="sm" aria-label="Next">
@@ -314,13 +312,13 @@ export default function Dashboard({
                                 />
                             </IconBtn>
                         </div>
-                        <div className="mt-[16px] block aspect-[4/3] overflow-hidden rounded-[8px] bg-[var(--thumb)]">
+                        <div className="mt-[16px] block aspect-[4/3] overflow-hidden rounded-[8px] bg-thumb">
                             <Thumb a={INSIDER.thumb[0]} b={INSIDER.thumb[1]} />
                         </div>
                         <div className="mb-[4px] mt-[12px] text-[15px] font-medium leading-[24px]">
                             {INSIDER.title}
                         </div>
-                        <p className="m-0 text-[13px] text-[color:var(--tx2)]">
+                        <p className="m-0 text-[13px] text-tx2">
                             {INSIDER.description}
                         </p>
                         <div className="mt-[16px]">
@@ -334,9 +332,9 @@ export default function Dashboard({
                         {IDEAS_FOR_YOU.map((t, i) => (
                             <div
                                 key={t}
-                                className={`flex items-center gap-[12px] py-[12px] text-[13px] ${i > 0 ? "border-t border-solid border-[color:var(--line)]" : ""}`}
+                                className={`flex items-center gap-[12px] py-[12px] text-[13px] ${i > 0 ? "border-t border-solid border-line" : ""}`}
                             >
-                                <BulbIcon className="h-[20px] w-[20px] text-[color:var(--tx2)]" />
+                                <BulbIcon className="h-[20px] w-[20px] text-tx2" />
                                 {t}
                             </div>
                         ))}
@@ -356,7 +354,7 @@ export default function Dashboard({
                         {WHATS_NEW.map((t, i) => (
                             <div key={t}>
                                 {i > 0 && <Divider />}
-                                <a className="relative block cursor-pointer py-[6px] pr-[36px] text-[13px] hover:text-[color:var(--blue)]">
+                                <a className="relative block cursor-pointer py-[6px] pr-[36px] text-[13px] hover:text-blue">
                                     {t}
                                 </a>
                             </div>
@@ -366,12 +364,9 @@ export default function Dashboard({
             </div>
 
             {/* footer links */}
-            <div className="flex gap-[38px] pb-[32px] pt-[40px] text-[13px] text-[color:var(--tx2)]">
+            <div className="flex gap-[38px] pb-[32px] pt-[40px] text-[13px] text-tx2">
                 {FOOTER_LINKS.map((l) => (
-                    <a
-                        key={l}
-                        className="cursor-pointer hover:text-[color:var(--tx)]"
-                    >
+                    <a key={l} className="cursor-pointer hover:text-tx">
                         {l}
                     </a>
                 ))}

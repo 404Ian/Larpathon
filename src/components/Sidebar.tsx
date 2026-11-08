@@ -42,7 +42,7 @@ const ITEMS: { to: string; go: string; icon: string; label: string }[] = [
 ];
 
 const NI =
-    "mx-[12px] flex h-[48px] flex-none cursor-pointer items-center gap-[24px] whitespace-nowrap rounded-[8px] text-[15px] leading-[24px] text-[color:var(--tx)]";
+    "mx-[12px] flex h-[48px] flex-none cursor-pointer items-center gap-[24px] whitespace-nowrap rounded-[8px] text-[15px] leading-[24px] text-tx";
 
 export const Sidebar: React.FC<SidebarProps> = ({
     onOpenSettings,
@@ -52,7 +52,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
     const pad = collapsed ? "justify-center px-0" : "px-[12px]";
 
     return (
-        <nav className="fixed bottom-0 left-0 top-[64px] z-40 flex w-[var(--nav)] flex-col overflow-y-auto overflow-x-hidden bg-[var(--bg)] transition-[width] duration-200 ease-[cubic-bezier(0.2,0,0,1)] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden [body.lt_&]:shadow-[1px_0_0_rgba(0,0,0,0.1)]">
+        <nav className="fixed bottom-0 left-0 top-[64px] z-40 flex w-nav flex-col overflow-y-auto overflow-x-hidden bg-bg transition-[width] duration-200 ease-studio [scrollbar-width:none] [&::-webkit-scrollbar]:hidden [body.lt_&]:shadow-[1px_0_0_rgba(0,0,0,0.1)]">
             <div
                 className={`flex flex-none flex-col items-center ${collapsed ? "pb-[8px] pt-[16px]" : "pb-[16px] pt-[24px]"}`}
             >
@@ -64,7 +64,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     data-tip="View channel on YouTube"
                 >
                     <img
-                        className={`inline align-baseline rounded-full bg-[var(--thumb)] object-cover transition-[width,height] duration-200 ease-[cubic-bezier(0.2,0,0,1)] ${
+                        className={`inline align-baseline rounded-full bg-thumb object-cover transition-[width,height] duration-200 ease-studio ${
                             collapsed
                                 ? "h-[32px] w-[32px]"
                                 : "h-[112px] w-[112px]"
@@ -81,7 +81,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         <div className="mt-[14px] text-[15px] font-medium leading-[24px]">
                             Your channel
                         </div>
-                        <div className="max-w-[220px] truncate text-[12px] leading-[16px] text-[color:var(--tx2)]">
+                        <div className="max-w-[220px] truncate text-[12px] leading-[16px] text-tx2">
                             SynthPulse
                         </div>
                     </>
@@ -95,7 +95,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         to={it.to}
                         data-go={it.go}
                         className={({ isActive }) =>
-                            `${NI} ${pad} ${isActive ? "bg-[var(--nav-on)] font-medium" : "hover:bg-[var(--row-h)]"}`
+                            `${NI} ${pad} ${isActive ? "bg-nav-on font-medium" : "hover:bg-row-h"}`
                         }
                     >
                         <Ic name={it.icon} />
@@ -106,7 +106,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
             <div className="mt-auto flex flex-col pb-[8px] pt-[16px]">
                 <a
-                    className={`${NI} ${pad} hover:bg-[var(--row-h)]`}
+                    className={`${NI} ${pad} hover:bg-row-h`}
                     href="#"
                     data-act="settings"
                     onClick={(e) => {
@@ -118,7 +118,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     {!collapsed && <span>Settings</span>}
                 </a>
                 <a
-                    className={`${NI} ${pad} hover:bg-[var(--row-h)]`}
+                    className={`${NI} ${pad} hover:bg-row-h`}
                     href="#"
                     data-act="feedback"
                     onClick={(e) => {

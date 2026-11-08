@@ -1,208 +1,215 @@
-/* Tailwind v3: keep these three lines.  Tailwind v4: replace them with  @import "tailwindcss";  */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Put the two font files in public/fonts/ */
 @font-face {
-    font-family: Roboto;
-    src: url("/fonts/roboto.woff2") format("woff2");
-    font-weight: 100 900;
-    font-display: block;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local("Roboto"), local("Roboto-Regular");
 }
+
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: local("Roboto Medium"), local("Roboto-Medium");
+}
+
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local("Roboto Bold"), local("Roboto-Bold");
+}
+
 @font-face {
     font-family: "YouTube Sans";
-    src: url("/fonts/youtube-sans.woff2") format("woff2");
-    font-weight: 300 900;
-    font-display: block;
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src:
+        local("YouTube Sans Semibold"), local("YouTubeSans-Semibold"),
+        local("Roboto Bold");
+}
+
+@font-face {
+    font-family: "YouTube Sans";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src:
+        local("YouTube Sans Bold"), local("YouTubeSans-Bold"),
+        local("Roboto Bold");
 }
 
 :root {
     --e: cubic-bezier(0.2, 0, 0, 1);
+    --nav: 256px;
+    --ask: 380px;
 }
 
 body.dk {
     --bg: #0f0f0f;
     --card: #0f0f0f;
-    --panel: #0f0f0f;
-    --menu: #212121;
-    --dialog: #212121;
-    --nav-on: #272727;
-    --nav-h: #272727;
-    --input: #242424;
-    --tx: #f1f1f1;
-    --tx2: #aaa;
-    --tx3: #717171;
-    --line: rgba(255, 255, 255, 0.1);
-    --line2: rgba(255, 255, 255, 0.2);
-    --cbd: #272727;
-    --tonal: #272727;
-    --tonal-h: #3f3f3f;
-    --hover: rgba(255, 255, 255, 0.1);
-    --row-h: #1f1f1f;
-    --blue: #3ea6ff;
-    --chart: #41b2d7;
-    --chart-fill: rgba(65, 178, 215, 0.1);
-    --grid: rgba(255, 255, 255, 0.1);
-    --axis: #717171;
-    --base: #717171;
-    --green: #2ba640;
-    --red: #ff4e45;
-    --tab-off: #262626;
-    --thumb: #1f1f1f;
-    --track: #3f3f3f;
-    --tip: #212121;
-    --htip: rgba(97, 97, 97, 0.95);
-    --toast-bg: #f1f1f1;
-    --toast-tx: #0f0f0f;
-    --filled: #f1f1f1;
+    --input: #1f1f1f;
+    --tonal: rgba(255, 255, 255, 0.1);
+    --tonal-h: rgba(255, 255, 255, 0.2);
+    --filled: #ffffff;
     --filled-tx: #0f0f0f;
     --filled-h: #d9d9d9;
-    --fld: rgba(255, 255, 255, 0.2);
-    --bulk: #272727;
-    --shadow: 0 4px 32px rgba(0, 0, 0, 0.5);
-    --scrim: rgba(0, 0, 0, 0.6);
-    --hm0: rgba(147, 99, 181, 0.1);
-    --live: #47b1d4;
-    --ai: linear-gradient(90deg, #a774e0, #bd6cb8 55%, #d0688a);
-    --ai-bub: linear-gradient(
-        90deg,
-        #260d27,
-        #2f0f28 40%,
-        #361423 70%,
-        #3e1919
-    );
-    --c-content: #7b6cf0;
-    --c-aud: #9363b5;
-    --c-rev: #66efdf;
-    --c-eng: #f06aa8;
-    --ask-bd: rgba(255, 255, 255, 0.2);
-    --ask-card: #272727;
-    --ask-focus: #8d5a89;
-    --ask-glow: rgba(160, 70, 160, 0.3);
-    --ask-tbl: #1f1f1f;
-    --ask-pend: #f1f1f1;
+    --hover: rgba(255, 255, 255, 0.08);
+    --row-h: #1f1f1f;
+    --nav-on: #1f1f1f;
+    --thumb: #1f1f1f;
+    --tx: #ffffff;
+    --tx2: #aaaaaa;
+    --tx3: #717171;
+    --blue: #3ea6ff;
+    --green: #2ba640;
+    --red: #ff4e45;
+    --line: rgba(255, 255, 255, 0.1);
+    --line2: rgba(255, 255, 255, 0.15);
+    --cbd: rgba(255, 255, 255, 0.2);
+    --shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.35);
+    --ai: linear-gradient(135deg, #3ea6ff 0%, #a87ffb 50%, #ff77e9 100%);
+    color-scheme: dark;
 }
+
 body.lt {
-    --bg: #fff;
-    --card: #fff;
-    --panel: #fff;
-    --menu: #fff;
-    --dialog: #fff;
-    --nav-on: #f2f2f2;
-    --nav-h: #f2f2f2;
+    --bg: #ffffff;
+    --card: #ffffff;
     --input: #f2f2f2;
+    --tonal: rgba(0, 0, 0, 0.05);
+    --tonal-h: rgba(0, 0, 0, 0.1);
+    --filled: #0f0f0f;
+    --filled-tx: #ffffff;
+    --filled-h: #272727;
+    --hover: rgba(0, 0, 0, 0.05);
+    --row-h: #f9f9f9;
+    --nav-on: #f2f2f2;
+    --thumb: #e5e5e5;
     --tx: #0f0f0f;
     --tx2: #606060;
     --tx3: #909090;
-    --line: #e5e5e5;
-    --line2: #e5e5e5;
-    --cbd: #e5e5e5;
-    --tonal: #f2f2f2;
-    --tonal-h: #e5e5e5;
-    --hover: rgba(0, 0, 0, 0.05);
-    --row-h: #f2f2f2;
     --blue: #065fd4;
-    --chart: #1f9bc8;
-    --chart-fill: rgba(31, 155, 200, 0.09);
-    --grid: #e5e5e5;
-    --axis: #909090;
-    --base: #909090;
-    --green: #2ba640;
+    --green: #007800;
     --red: #cc0000;
-    --tab-off: #f2f2f2;
-    --thumb: #e5e5e5;
-    --track: #e5e5e5;
-    --tip: #fff;
-    --htip: rgba(97, 97, 97, 0.95);
-    --toast-bg: #0f0f0f;
-    --toast-tx: #fff;
-    --filled: #0f0f0f;
-    --filled-tx: #fff;
-    --filled-h: #272727;
-    --fld: rgba(0, 0, 0, 0.2);
-    --bulk: #f2f2f2;
-    --shadow: 0 4px 32px rgba(0, 0, 0, 0.16);
-    --scrim: rgba(0, 0, 0, 0.5);
-    --hm0: rgba(140, 34, 192, 0.07);
-    --live: #24a1c8;
-    --ai: linear-gradient(90deg, #831087, #c41f8e 55%, #de376b);
-    --ai-bub: linear-gradient(90deg, #f9f3f8, #fef6fb 50%, #fdf6f8);
-    --c-content: #4839c7;
-    --c-aud: #8c22c0;
-    --c-rev: #00a994;
-    --c-eng: #d3307e;
-    --ask-bd: #e5e5e5;
-    --ask-card: #f2f2f2;
-    --ask-focus: #cbb0c7;
-    --ask-glow: rgba(196, 140, 190, 0.35);
-    --ask-tbl: #f2f2f2;
-    --ask-pend: #0f0f0f;
+    --line: rgba(0, 0, 0, 0.1);
+    --line2: rgba(0, 0, 0, 0.15);
+    --cbd: rgba(0, 0, 0, 0.12);
+    --shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.12);
+    --ai: linear-gradient(135deg, #065fd4 0%, #8c52ff 50%, #e040fb 100%);
+    color-scheme: light;
 }
 
-@layer base {
-    html {
-        text-size-adjust: 100%;
-    }
-    body {
-        margin: 0;
-        background: var(--bg);
-        color: var(--tx);
-        font:
-            13px/20px Roboto,
-            Arial,
-            sans-serif;
-        -webkit-font-smoothing: antialiased;
-        min-width: 900px;
-    }
-    a {
-        color: inherit;
-        text-decoration: none;
-    }
-    button,
-    input,
-    textarea {
-        font: inherit;
-        color: inherit;
-    }
-    hr {
-        border: 0;
-        border-top: 1px solid var(--line);
-        margin: 16px 0;
-        height: 0;
-    }
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--tx);
+    font-family:
+        "Roboto",
+        -apple-system,
+        BlinkMacSystemFont,
+        sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: 0;
+    outline: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid var(--line);
+    margin: 0;
+}
+
+.ic {
+    width: 24px;
+    height: 24px;
+    flex: 0 0 auto;
+    display: block;
 }
 
 @keyframes pl {
-    0% {
-        transform: scale(0.5);
-        opacity: 0.8;
-    }
+    0%,
     100% {
-        transform: scale(1.6);
-        opacity: 0;
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.35;
     }
 }
+
 @keyframes grow {
-    0% {
+    from {
         transform: scaleX(0);
     }
-}
-@keyframes growy {
-    0% {
-        transform: scaleY(0);
+    to {
+        transform: scaleX(1);
     }
 }
+
+@keyframes growy {
+    from {
+        transform: scaleY(0);
+    }
+    to {
+        transform: scaleY(1);
+    }
+}
+
 @keyframes rot {
-    100% {
+    to {
         transform: rotate(360deg);
     }
 }
+
 @keyframes shim {
     0% {
-        background-position: 100% 0;
+        background-position: -200% 0;
     }
     100% {
-        background-position: -100% 0;
+        background-position: 200% 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }
